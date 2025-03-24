@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Global Design System */
+:root {
+  /* Z-Index Hierarchy */
+  --z-background: 1;
+  --z-base-layer: 10;
+  --z-map-elements: 20;
+  --z-card-elements: 30;
+  --z-card-interaction: 40;
+  --z-combat-interface: 50;
+  --z-ui-overlay: 60;
+  --z-modal: 100;
+  --z-popup: 200;
+  --z-notification: 300;
+  --z-top-layer: 9999;
+
+  /* Color Palette */
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+
+  --color-secondary: #6366f1;
+  --color-secondary-light: #818cf8;
+  --color-secondary-dark: #4338ca;
+
+  --color-success: #10b981;
+  --color-success-light: #34d399;
+  --color-success-dark: #047857;
+
+  --color-danger: #ef4444;
+  --color-danger-light: #fca5a5;
+  --color-danger-dark: #b91c1c;
+
+  --color-warning: #f59e0b;
+  --color-warning-light: #fcd34d;
+  --color-warning-dark: #b45309;
+
+  --color-background: #111827;
+  --color-surface: #1f2937;
+  --color-text: #f9fafb;
+
+  /* Transitions */
+  --transition-default: all 0.2s ease-in-out;
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Base Styles */
+html,
+body {
+  @apply bg-gray-900 text-white;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+}
+
+/* Form Elements */
+input,
+select,
+textarea,
+button {
+  @apply focus:ring-2 focus:ring-blue-400 focus:outline-none;
+  transition: var(--transition-default);
+}
+
+button {
+  @apply transform transition-transform duration-200;
+}
+
+button:active:not(:disabled) {
+  @apply scale-95;
+}
+
+button:disabled {
+  @apply opacity-60 cursor-not-allowed;
+}
+
+/* Card Effects */
+.perspective-500 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Custom Animations */
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Custom Utilities */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hover-scale {
+  @apply transform transition-transform duration-200;
+}
+
+.hover-scale:hover {
+  @apply scale-105;
+}
+
+/* Card Grid Layouts */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility Focus Styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-900;
+}
+
+/* Glass Effect */
+.glass {
+  @apply bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm border border-white border-opacity-20 shadow-lg;
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-primary {
+  @apply bg-gradient-to-tr from-blue-700 to-indigo-500;
+}
+
+.bg-gradient-dark {
+  @apply bg-gradient-to-br from-gray-800 to-gray-900;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
